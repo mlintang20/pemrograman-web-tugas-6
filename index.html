@@ -12,7 +12,7 @@
     <style type="text/css">
       .labelfrm {
         display: block;
-        font-size: small;
+        font-size: medium;
         margin-top: 5px;
       }
       .error {
@@ -82,19 +82,19 @@
     <div class="d-flex justify-content-center mt-4">
       <form action="proses.php" method="post" id="frm-mhs">
         <label for="nrp" class="labelfrm text-primary">NRP: </label>
-        <input type="text" name="nrp" id="nrp" maxlength="21" class="required" size="40" />
+        <input type="text" name="nrp" id="nrp" maxlength="21" class="required" size="50" />
 
         <label for="nama" class="labelfrm text-primary">NAMA: </label>
-        <input type="text" name="nama" id="nama" size="40" class="required" />
+        <input type="text" name="nama" id="nama" size="50" class="required" />
 
         <label for="alamat" class="labelfrm text-primary">ALAMAT: </label>
-        <textarea name="alamat" id="alamat" cols="42" rows="4" class="required"></textarea>
+        <textarea name="alamat" id="alamat" cols="52" rows="4" class="required"></textarea>
 
         <label for="tgl" class="labelfrm text-primary">TANGGAL LAHIR: </label>
-        <input type="text" name="tgl" id="tgl" maxlength="10" size="15" class="required" />
+        <input type="text" name="tgl" id="tgl" maxlength="10" size="50" class="required" />
 
         <label for="umur" class="labelfrm text-primary">UMUR: </label>
-        <input type="text" name="umur" id="umur" maxlength="3" size="7" class="required" />
+        <input type="text" name="umur" id="umur" maxlength="3" size="50" class="required" />
 
         <label for="email" class="labelfrm text-primary">ALAMAT EMAIL: </label>
         <input type="text" name="email" id="email" size="50" class="required" />
@@ -103,13 +103,15 @@
         <input type="text" name="situs" id="situs" size="50" class="required" />
 
         <label for="pass1" class="labelfrm text-primary">PASSWORD: </label>
-        <input type="password" name="pass1" id="pass1" size="15" class="required" />
+        <input type="password" name="pass1" id="pass1" size="50" class="required" />
 
         <label for="pass2" class="labelfrm text-primary">ULANGI PASSWORD: </label>
-        <input type="password" name="pass2" id="pass2" size="15" class="required" />
+        <input type="password" name="pass2" id="pass2" size="50" class="required" />
 
         <label for="submit" class="labelfrm text-primary">&nbsp;</label>
-        <input type="submit" name="Submit" value="Submit" />
+        <div class="d-flex align-items-center justify-content-center">
+          <button type="submit" class="btn btn-light">Submit</button>
+        </div>
       </form>
     </div>
 
