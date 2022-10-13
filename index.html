@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+
+    <title>Latihan jQuery - Validasi Form Input</title>
+    <style type="text/css">
+      .labelfrm {
+        display: block;
+        font-size: small;
+        margin-top: 5px;
+      }
+      .error {
+        font-size: small;
+        color: rgb(255, 100, 100);
+      }
+    </style>
+
+    <script type="text/javascript" src="jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#frm-mhs").validate({
+          rules: {
+            nrp: {
+              digits: true,
+              minlength: 10,
+              maxlength: 20,
+            },
+            tgl: {
+              indonesianDate: true,
+            },
+            umur: {
+              digits: true,
+              range: [0, 100],
+            },
+            email: {
+              email: true,
+            },
+            situs: {
+              url: true,
+            },
+            pass2: {
+              equalTo: "#pass1",
+            },
+          },
+          messages: {
+            nrp: {
+              required: "Kolom nrp harus diisi",
+              minlength: "NRP minimal harus terdiri dari 10 digit",
+              maxlength: "NRP maksimal harus terdiri dari 20 digit",
+            },
+            email: {
+              required: "Alamat email harus diisi",
+              email: "Format email tidak valid",
+            },
+            pass2: {
+              equalTo: "Password tidak sama",
+            },
+          },
+        });
+      });
+
+      $.validator.addMethod(
+        "indonesianDate",
+        function (value, element) {
+          // put your own logic here, this is just a (crappy) example
+          return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
+        },
+        "Please enter a date in the format DD/MM/YYYY"
+      );
+    </script>
+  </head>
+  <body class="bg-dark bg-gradient text-light">
+    <h1 class="text-primary text-center my-3">Input Data Mahasiswa</h1>
+    <div class="d-flex justify-content-center mt-4">
+      <form action="proses.php" method="post" id="frm-mhs">
+        <label for="nrp" class="labelfrm text-primary">NRP: </label>
+        <input type="text" name="nrp" id="nrp" maxlength="21" class="required" size="40" />
+
+        <label for="nama" class="labelfrm text-primary">NAMA: </label>
+        <input type="text" name="nama" id="nama" size="40" class="required" />
+
+        <label for="alamat" class="labelfrm text-primary">ALAMAT: </label>
+        <textarea name="alamat" id="alamat" cols="42" rows="4" class="required"></textarea>
+
+        <label for="tgl" class="labelfrm text-primary">TANGGAL LAHIR: </label>
+        <input type="text" name="tgl" id="tgl" maxlength="10" size="15" class="required" />
+
+        <label for="umur" class="labelfrm text-primary">UMUR: </label>
+        <input type="text" name="umur" id="umur" maxlength="3" size="7" class="required" />
+
+        <label for="email" class="labelfrm text-primary">ALAMAT EMAIL: </label>
+        <input type="text" name="email" id="email" size="50" class="required" />
+
+        <label for="situs" class="labelfrm text-primary">ALAMAT SITUS: </label>
+        <input type="text" name="situs" id="situs" size="50" class="required" />
+
+        <label for="pass1" class="labelfrm text-primary">PASSWORD: </label>
+        <input type="password" name="pass1" id="pass1" size="15" class="required" />
+
+        <label for="pass2" class="labelfrm text-primary">ULANGI PASSWORD: </label>
+        <input type="password" name="pass2" id="pass2" size="15" class="required" />
+
+        <label for="submit" class="labelfrm text-primary">&nbsp;</label>
+        <input type="submit" name="Submit" value="Submit" />
+      </form>
+    </div>
+
+    <footer class="mt-5 py-3 bg-primary text-center text-light">Pemrograman Web B Tugas 6 © Oktober 2022, Muhammad Lintang Panjerino</footer>
+  </body>
+</html>
