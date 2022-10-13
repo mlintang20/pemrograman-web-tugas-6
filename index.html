@@ -33,6 +33,9 @@
               minlength: 10,
               maxlength: 20,
             },
+            nama: {
+              alphabets: true,
+            },
             tgl: {
               indonesianDate: true,
             },
@@ -52,15 +55,34 @@
           },
           messages: {
             nrp: {
-              required: "Kolom nrp harus diisi",
+              required: "NRP harus diisi",
               minlength: "NRP minimal harus terdiri dari 10 digit",
               maxlength: "NRP maksimal harus terdiri dari 20 digit",
             },
+            nama: {
+              required: "Nama harus diisi",
+            },
+            alamat: {
+              required: "Alamat harus diisi",
+            },
+            tgl: {
+              required: "Tanggal lahir harus diisi",
+            },
+            umur: {
+              required: "Umur harus diisi",
+            },
             email: {
               required: "Alamat email harus diisi",
-              email: "Format email tidak valid",
+              email: "Format alamat email tidak valid",
+            },
+            situs: {
+              required: "Alamat situs harus diisi",
+            },
+            pass1: {
+              required: "Password harus diisi",
             },
             pass2: {
+              required: "Konfirmasi password harus diisi",
               equalTo: "Password tidak sama",
             },
           },
@@ -73,7 +95,15 @@
           // put your own logic here, this is just a (crappy) example
           return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
         },
-        "Please enter a date in the format DD/MM/YYYY"
+        'Masukkan "TANGGAL LAHIR" dengan format DD/MM/YYYY'
+      );
+
+      $.validator.addMethod(
+        "alphabets",
+        function (value, element) {
+          return value.match(/^[a-zA-Z\s]+$/);
+        },
+        "Masukkan huruf dan spasi saja"
       );
     </script>
   </head>
